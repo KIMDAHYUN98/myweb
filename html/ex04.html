@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html/ex04.html</title>
+</head>
+<body>
+    <fieldset>
+    <legend><h1>개인 정보 입력</h1></legend>      
+    <form action="ex04.jsp" method="GET">
+    아이디 : <input type="text" name="user_id" id="user_id">
+    <input type="button" value="ID중복검사" onclick="alert('완료')"><p></p>    
+        생년월일 : <input type="datetime-local" name="bdaytime"><p></p>
+       성별 : <input type="radio" name="sex" id="female" checked>여자
+        <input type="radio" name="sex" id="male">남자<p></p>
+     이메일 : <input type="text" name="user_email" id="user_email"><p></p>
+        메일수신 : <input type="radio" name="mail" id="mail" checked> 수신동의
+         <input type="radio" name="mail" id="non_mail">수신거부<p></p>
+        핸드폰 :  <select name="phone">
+             <option value="1" selected>010</option>
+             <option value="2">011</option>
+         </select>
+          -  <input type="text" name="phone" id="sphone">
+          -  <input type="text" name="phone" id="lphone"><p></p>
+         직업 : <select name="job">
+             <option value="1" selected>학생</option>
+             <option value="2">회사원</option>
+             <option value="3">무직</option>
+             <option value="4">기타</option>
+         </select> <p></p>
+         취미 : <input type="radio" name="hobby" id="shopping" checked>쇼핑
+         <input type="radio" name="hobby" id="internet" >인터넷
+         <input type="radio" name="hobby" id="music" >음악감상
+         <input type="radio" name="hobby" id="read" >독서
+         <input type="radio" name="hobby" id="sport" >스포츠<p></p>
+         자기소개 : <textarea name="self_intro" cols="50" rows="5"></textarea><p></p>
+     <input type="submit" value="등록">
+     <input type="reset" value="초기화">
+    </fieldset>
+    </form>
+</body>
+</html>
