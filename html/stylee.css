@@ -1,0 +1,21 @@
+h1 {
+    color: white; 
+    font: 15px;
+    background-color: navy;
+}
+
+header > h1 {
+    background-color: olive;
+}
+content h1 {
+    font-size: 10px
+}
+
+#first { 
+    color: orange;
+
+}
+
+header .first{
+    color: yellow;
+}
