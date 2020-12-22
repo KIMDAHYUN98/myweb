@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html2/flexbox2.html</title>
+    <!-- item -->
+    <style>
+        .flex-container {
+            background-color: dodgerblue;
+            display: flex;
+            height: 200px;
+        }
+        .flex-container > div {
+            background-color: #f1f1f1;
+            width: 50px;
+            margin: 10px;
+            text-align: center;
+            font-size: 30px;
+            border: 1px dotted red;
+            line-height: 100px;
+
+        }
+        .flex-container > div:nth-child(3) {
+            
+            /* order : 디폴트 값이 0, 아이템의 배치 순서 */
+            
+            /* flex-grow: 4;*/
+            
+            /* flex-shrink */
+            /* 기본값 : 1 */
+            
+            align-self: flex-end;
+            /* 아이템 하나에만 스타일 지정
+            stretch(기본값), flex-end, center*/
+        }
+        /* .flex-container > div:nth-child(2) {         
+            flex-grow: 3;
+        }
+        .flex-container > div:nth-child(3) {          
+            flex-grow: 2;
+        }
+        .flex-container > div:nth-child(4) {
+            flex-grow: 1;
+        } */
+    </style>
+</head>
+<body>
+    <div class="flex-container">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>3</div>
+        <div>4</div>
+    </div>
+</body>
+</html>
