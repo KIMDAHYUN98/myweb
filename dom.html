@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom.html</title>
+    <style>
+        #container {
+            width: 400px;
+            height: 400px;
+            background-color: yellow;
+            position: relative;
+        }
+
+        #animate {
+            width: 300px;
+            height: 50px;
+            background-color: red;
+            position: absolute;
+            /*static : 가로, 세로 값을 따로 지정 해도 고정 */
+
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">Move Start!!</button></p>
+    <div id="container">
+        <div id="animate"></div>
+    </div>
+
+    <script>
+
+        setInterval(() => {
+            document.getElementById('animate').innerHTML = new Date();
+        }, 1000);
+        let btn = document.getElementById('btn');
+        btn.onclick = moveStart; // 클릭할 때 발생, moveStart() : 이미 실행되어 있는 상태,
+
+        function moveStart() {
+            console.log('start');
+            let animate = document.getElementById('animate');
+            let i = 0;
+            let myInterval = setInterval(() => { // for문과 유사
+                i++;
+                animate.style.left = i + 'px';
+                animate.style.top = i + 'px';
+                if (i == 350)
+                    clearInterval(myInterval);
+            }, 10); // 0.01초, inteval = 1000 : 1초 단위로 실행
+
+        }
+
+
+    </script>
+</body>
+
+</html>

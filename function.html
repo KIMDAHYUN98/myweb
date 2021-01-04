@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function.html</title>
+</head>
+<body>
+<div id="show"></div>
+    <script>
+        function sum(a, b) { // 타입X
+            return a + b;
+        }
+        let result = sum(10, 20);
+        
+        function showElement() {
+            let h1 = document.createElement('h1');
+            h1.innerHTML = 'Hello';
+            return h1;
+        }
+        result = showElement();
+        // 리턴 타입을 정의 X
+       
+        // 여기부터
+        function Person(name, age, hobby) { 
+            this.name = name;
+            this.age = age;
+            this.hobby = hobby;   
+        }
+        
+        let persons = [];
+        Person.prototype.phone = '010';
+
+        let p1 = new Person('Park', 20, 'sleeping');
+        let p2 = new Person('Choi', 22, 'reading');
+        
+        persons.push(p1);
+        persons.push(p2);
+        persons.push(new Person('Kim', 25, 'game'));
+         // 여기까지
+        
+         function createTable(ary) {
+             // persons => 배열
+             // 이름, 나이, 취미, 연락처
+            let table = document.createElement('table');
+            table.setAttribute('border', '1');
+            let tr, td
+                for(person of ary) { 
+                    tr = document.createElement('tr');        
+                    for(field in person) {
+                        td = document.createElement('td');
+                            td.innerHTML = person[field];
+                            tr.append(td);
+                            table.append(tr);
+                    }                   
+                }                
+            return table;
+        }
+       
+        result = createTable(persons);
+        document.getElementById('show').append(result);
+
+        let x = (a, b) => { // 람다식 / let x = function(a, b) {...};
+            return a + b;
+        }
+        let y = x; // y는 x의 function obj를 참조한다
+
+        console.log(x(10, 15)); // x = function(10, 25) {...};
+        console.log(y(20, 25));
+
+        function findMax(){ // findMax() : 주어진 매개 값의 제일 큰 값을 반환
+            console.log(arguments); // arguments : 오브젝트, 매개 값을 배열에 담아서 반환
+            let max = 0;
+            for(let i = 0; i < arguments.length; i++) {
+                if(arguments[i] > max) {
+                    max = arguments[i];
+                }
+            }
+            return max;
+        };
+        result = findMax(1, 5, 3, 8, 7, 4, 2);
+        console.log(result);
+        
+
+        
+
+    </script>
+</body>
+</html>

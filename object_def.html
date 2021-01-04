@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>object_def.html</title>
+</head>
+<body>
+    <script>
+        function Person(name, age, hobby) { 
+            // Person(=생성자 함수)에 각각 필드(name, age, hobby...)를 넣어준다
+            this.name = name;
+            this.age = age;
+            this.hobby = hobby;   
+        }
+        
+        let persons = [];
+        Person.prototype.phone = '010';
+        // Person에 proto 타입의 phone 이라는 필드를 초기화 값을 설정한 상태에서 추가
+        Person.prototype.toString = function() {
+            return this. name + ', ' + this.age + ', ' + this.hobby + ', ' + this.phone;
+        }
+
+        let p1 = new Person('Park', 20, 'sleeping');
+        // p1.phone = '010-1234-5678'; ==> p1에 phone 이라는 필드 추가
+        let p2 = new Person('Choi', 22, 'reading');
+        
+        persons.push(p1);
+        persons.push(p2);
+        persons.push(new Person('Kim', 25, 'game'));
+        // console.log(persons);
+        for (person of persons) {
+            console.log(person.toString());
+        }
+
+        let p4 = {
+            name: 'Hong',
+            age: 20
+        }
+        Object.defineProperty(p4, 'hobby', {value: 'reading'}); // = p4.hobby = 'reading';
+        console.log(p4);
+    </script>
+</body>
+</html>

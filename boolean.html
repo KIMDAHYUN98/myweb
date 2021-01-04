@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>boolean.html</title>
+</head>
+<body>
+    <script>
+        let trueOrFalse = new Boolean(10 < 9); // true, false or 표현식
+        trueOrFalse = 'q'; // 0, 공백, undefined, null : false, 값이 할당 : true
+        if(trueOrFalse) {
+            console.log('참입니다.');
+        } else {
+            console.log('거짓입니다.');
+        }
+        
+        let val1 = 100;
+        let val2 = '100';
+
+        if(!(val1 === val2)) { 
+            // === : 데이터 타입, 값이 같은지 비교 / !== : 반대
+            console.log('동일합니다.');
+        } else {
+            console.log('다릅니다.');
+        }
+
+        let result = val1 > 100 ? '100보다 크다':'100보다 작다' ;
+        result = new String('hello'); // = 'hello'
+        result = new Number(10); // = 10
+        result = new Object();
+
+        result = { // obj
+            name: 'Hong',
+            age: 15,
+            getName: function() { // getName : 메소드, 
+                return this.name;
+            },
+            getInfo: function() {
+                console.log(this. name + '-' + this.age);
+                // return this. name + '-' + this.age;
+            },
+            get getAge() { // get 키워드 + get...() 함수 정의(속성값)
+                return this.age;
+            },
+            set setAge(age) { // function X (속성값)
+                this.age = age;
+            }
+        }
+        result.setAge = 25; // setAge(25) => X, property에 값을 할당하는 것과 같음
+        console.log(result.getAge);
+
+        result.hobby = 'reading';
+        result.getInfo(); 
+
+        // get...() ==> 해당되는 메소드를 실행해라
+
+        delete result.hobby; 
+
+        // 배열 일 경우 : for of..
+        // 오브젝트 일 경우 : for in..
+
+        let person = {
+            name: 'Hwang',
+            age: 10,
+            address: 'Seoul'
+        }
+
+        let vals = Object.values(person); 
+        // valuse() : 값에 해당 되는 부분만 배열 타입으로 출력  
+        vals = JSON.stringify(person);
+        // JSON.stringify() : JSON의 string 타입으로 형태 변환(숫자는 그대로)
+        console.log(vals);
+
+        let persons = [person]; // 배열 obj 생성
+
+        let person1 = {
+            name: 'Hwang',
+            age: 10,
+            address: 'Seoul'
+        }
+        persons.push(person1); // == persons = [person1]
+
+        for(person of persons) { // 배열에 있는 오브젝트를 person에 담는다
+            for(field in person) { // 오브젝트 안의 필드를 field에 담는다
+                console.log(field, '-', person[field]);
+
+            }
+        }
+
+        // let v = result; // v = result
+
+        // console.log(result.name, result.age);
+        // console.log(v.name, v.age);
+
+        // result = 'hello';
+        // v = result;
+        // result = 'World';
+        // console.log(v); // obj와 기본 데이터 삽입은 다르다?
+
+    </script>
+
+</body>
+</html>
