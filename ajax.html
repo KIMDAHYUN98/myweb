@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax.html</title>
+</head>
+
+<body>
+    <div id="show"></div>
+    <script>
+        let xhtp = new XMLHttpRequest();
+        console.log(xhtp);
+        xhtp.onreadystatechange = function () {
+            // console.log(xhtp.readyState, xhtp.status);
+
+            if (xhtp.readyState == 4 && xhtp.status == 200) {
+                // console.log(xhtp.responseXML);
+                let doc = xhtp.responseXML;
+                console.log(doc);
+                let result = doc.querySelectorAll('dataset > record');
+                console.log(result);
+                let table = document.createElement('table');
+                table.setAttribute('border', '1');
+                let tr = document.createElement('tr');
+                for (let i = 0; i < result.length; i++) {
+                    tr = document.createElement('tr');
+                    for (let j = 0; j < result[i].childNodes.length; j++) {
+                        let td = document.createElement('td');
+                        let str = result[i].childNodes[j].childNodes[0].nodeValue;
+                        let textNode = document.createTextNode(str);
+                        td.appendChild(textNode); // appendChild = append
+                        tr.appendChild(td);
+                        table.appendChild(tr);
+                    }
+                    // result[i].childNodes[0].childNodes[0].nodeValue;
+                }
+                let show = document.getElementById('show');
+                show.appendChild(table);
+                // show.innerHTML = xhtp.responseText;
+            }
+        }
+        xhtp.open('get', 'dataset.xml');
+        xhtp.send();
+        
+        function createHeader() {
+        }
+
+    </script>
+</body>
+
+</html>
